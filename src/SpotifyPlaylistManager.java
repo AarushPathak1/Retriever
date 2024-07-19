@@ -4,6 +4,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.util.List;
 
 import com.google.gson.Gson;
 
@@ -13,7 +14,7 @@ import com.google.gson.Gson;
  */
 public class SpotifyPlaylistManager {
 
-	private static String accessToken;
+	private String accessToken;
 
 	/**
 	 * Initializes the connection to the API by getting an access token and storing it in acessToken
@@ -27,7 +28,7 @@ public class SpotifyPlaylistManager {
 	 * 
 	 * @return The access token
 	 */
-	private static String getAccessToken() {
+	private String getAccessToken() {
 		HttpRequest postRequest;
 		HttpResponse<String> postResponse = null;
 		SpotifyClient client = new SpotifyClient();
@@ -48,12 +49,18 @@ public class SpotifyPlaylistManager {
 		// convert the received Json String into a SpotifyClient object to retrieve the access_token
 		Gson gson = new Gson();
 		client = gson.fromJson(postResponse.body(), SpotifyClient.class);
-		return client.getAccessToken(); // return the access_token of the client
-		
-		
+		return client.getAccessToken(); // return the access_token of the client	
 	}
 	
-	
+	/**
+	 * Adds all the songs in the given list to the playlist with 'playlistid'
+	 * 
+	 * @param songs The list of songs to be added
+	 * @param playlistId The id of the playlist to which songs are to be added
+	 */
+	public void addSongsToPlaylist(List<String> songs, String playlistId) {
+		
+	}
 	
 	public static void main(String[] args) {
 	}
