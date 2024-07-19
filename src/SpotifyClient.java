@@ -4,35 +4,35 @@
  */
 public class SpotifyClient {
 	
-	private static final String CLIENT_ID = "235e58e7ae5d4a23becd2e8b58bb86e5";
-	private static final String CLIENT_SECRET = "bc48bf31527044caa6c144ad3c8ba2d7";
-	private static String accessToken;
+	private final String CLIENT_ID = "235e58e7ae5d4a23becd2e8b58bb86e5";
+	private final String CLIENT_SECRET = "bc48bf31527044caa6c144ad3c8ba2d7";
+	private String access_token;
 	
 	/**
 	 * @return the clientId
 	 */
-	public static String getClientId() {
+	public String getClientId() {
 		return CLIENT_ID;
 	}
 
 	/**
 	 * @return the clientSecret
 	 */
-	public static String getClientSecret() {
+	public String getClientSecret() {
 		return CLIENT_SECRET;
 	}
 
 	/**
 	 * @return the accessToken
 	 */
-	public static String getAccessToken() {
-		return accessToken;
+	public String getAccessToken() {
+		return access_token;
 	}
 
 	/**
 	 * @param accessToken the accessToken to set
 	 */
-	public static void setAccessToken(String accessToken) {
-		SpotifyClient.accessToken = accessToken;
+	public void setAccessToken(String accessToken) {
+		this.access_token = accessToken;
 	}
 }
