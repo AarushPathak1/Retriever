@@ -10,7 +10,9 @@ import com.google.gson.Gson;
 
 /**
  * This class is used to set up the connection with the Spotify web API so that
- * further requests can be made.
+ * further requests can be made. 
+ * 
+ * @author aarushpathak
  */
 public class SpotifyPlaylistManager {
 

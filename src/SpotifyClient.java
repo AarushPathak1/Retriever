@@ -1,6 +1,8 @@
 /**
  * This class is used to implement the functionality of a client attempting to establish
- * a connection with the Spotify web API
+ * a connection with the Spotify web API.
+ * 
+ * @author aarushpathak
  */
 public class SpotifyClient {
 	
