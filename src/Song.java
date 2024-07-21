@@ -135,41 +135,28 @@ public class Song {
 	 * The "Spotify" sub section of the returned json object
 	 */
     public static class Spotify {
-        @SerializedName("track")
-        private Track track;
-
-        /**
-         * @return track
-         */
-        public Track getTrack() {
-            return track;
-        }
-
-        /**
-         * @param track
-         */
-        public void setTrack(Track track) {
-            this.track = track;
-        }
+    	@SerializedName("id")
+    	private String id;
+    	@SerializedName("uri")
+    	private String uri;
+    	
+    	
+    	public String getId() {
+    		return id;
+    	}
+    	
+    	public void setId(String id) {
+			this.id = id;
+		}
+    	
+    	public String getUri() {
+			return uri;
+		}
+    	
+    	public void setUri(String uri) {
+			this.uri = uri;
+		}
+    	
     }
-
-    public static class Track {
-    	/** The spotify_id of the song */
-        @SerializedName("id")
-        private String id;
-
-        /**
-         * @return the id
-         */
-        public String getId() {
-            return id;
-        }
-        
-        /**
-         * @param id the spotify_id of the song
-         */
-        public void setId(String id) {
-            this.id = id;
-        }
-    }
+    
 }
