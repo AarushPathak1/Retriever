@@ -45,7 +45,7 @@ public class MusicRecognizer {
 			// send the Http request and record the response in the postResponse object
 			HttpClient client = HttpClient.newHttpClient();
 			postResponse = client.send(postRequest, BodyHandlers.ofString());
-			System.out.println(postResponse.body());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

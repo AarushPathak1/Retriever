@@ -9,5 +9,7 @@
 	<classpathentry kind="lib" path="commons-exec-1.4.0.jar"/>
 	<classpathentry kind="lib" path="gson-2.8.2.jar"/>
 	<classpathentry kind="lib" path="spark-core-2.9.3.jar"/>
+	<classpathentry kind="lib" path="slf4j-simple-2.0.13.jar"/>
+	<classpathentry kind="lib" path="slf4j-api-2.0.13.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

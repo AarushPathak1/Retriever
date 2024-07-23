@@ -5,6 +5,8 @@ import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 /**
  * This class is used to set up the connection with the Spotify web API so that
@@ -92,5 +94,27 @@ public class SpotifyPlaylistManager {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Finds and returns all of the user's playlists
+	 * @return a JsonArray of the user's playlists
+	 */
+    public JsonArray getUserPlaylists() {
+        HttpRequest getRequest;
+        HttpResponse<String> getResponse = null;
+        try {
+            getRequest = HttpRequest.newBuilder()
+                    .uri(new URI("https://api.spotify.com/v1/me/playlists"))
+                    .header("Authorization", "Bearer " + accessToken)
+                    .build();
+            HttpClient client = HttpClient.newHttpClient();
+            getResponse = client.send(getRequest, BodyHandlers.ofString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        JsonObject jsonObject = gson.fromJson(getResponse.body(), JsonObject.class);
+        return jsonObject.getAsJsonArray("items");
+    }
 
 }
