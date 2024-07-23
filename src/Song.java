@@ -57,6 +57,13 @@ public class Song {
     public void setResult(Result result) {
         this.result = result;
     }
+    
+    /**
+     * @return the song uri from the Spotify sub-class
+     */
+    public String getSongUri() {
+		return this.getResult().getSpotify().getUri();
+	}
 	
 	
 	/** The "result" sub section of the returned json object */

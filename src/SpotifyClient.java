@@ -1,40 +1,22 @@
-/**
- * This class is used to implement the functionality of a client attempting to establish
- * a connection with the Spotify web API.
- * 
- * @author aarushpathak
- */
+import com.google.gson.annotations.SerializedName;
+
 public class SpotifyClient {
-	
-	private final String CLIENT_ID = "235e58e7ae5d4a23becd2e8b58bb86e5";
-	private final String CLIENT_SECRET = "bc48bf31527044caa6c144ad3c8ba2d7";
-	private String access_token;
-	
-	/**
-	 * @return the clientId
-	 */
-	public String getClientId() {
-		return CLIENT_ID;
-	}
+	@SerializedName("access_token")
+	private String accessToken;
 
 	/**
-	 * @return the clientSecret
-	 */
-	public String getClientSecret() {
-		return CLIENT_SECRET;
-	}
-
-	/**
-	 * @return the accessToken
+	 * @return the access_token
 	 */
 	public String getAccessToken() {
-		return access_token;
+		return accessToken;
 	}
 
 	/**
-	 * @param accessToken the accessToken to set
+	 * @param access_token the access_token to set
 	 */
 	public void setAccessToken(String accessToken) {
-		this.access_token = accessToken;
+		this.accessToken = accessToken;
 	}
+	
+	
 }

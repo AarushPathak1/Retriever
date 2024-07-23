@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 import com.google.gson.Gson;
 
 /**
- * This class implements audio recognition capabilities for an input aufdio file.
+ * This class implements audio recognition capabilities for an input audio file.
  * 
  * @author aarushpathak
  */
@@ -32,7 +32,7 @@ public class MusicRecognizer {
 		
 		try {		
 			// create the form body string with all necessary information
-			String formParams = "url=" + URLEncoder.encode(audioUrl, StandardCharsets.UTF_8)
+			String formParams = "url=" + URLEncoder.encode(song.getUrl(), StandardCharsets.UTF_8)
 			+ "&return=" + URLEncoder.encode("spotify", StandardCharsets.UTF_8)
 			+ "&api_token=" + URLEncoder.encode(API_TOKEN, StandardCharsets.UTF_8);
 			
@@ -45,6 +45,7 @@ public class MusicRecognizer {
 			// send the Http request and record the response in the postResponse object
 			HttpClient client = HttpClient.newHttpClient();
 			postResponse = client.send(postRequest, BodyHandlers.ofString());
+			System.out.println(postResponse.body());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

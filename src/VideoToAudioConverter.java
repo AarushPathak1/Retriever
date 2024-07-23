@@ -15,7 +15,7 @@ public class VideoToAudioConverter {
 	 * @param outputAudioFilePath The location where the extracted audio is to be saved
 	 * @throws Exception
 	 */
-	public static void extractAudio(String videoFilePath, String outputAudioFilePath) throws Exception {
+	public static void extractAudio(String videoFilePath, String outputAudioFilePath) {
 		// Path to the FFmpeg executable in the project directory
         String ffmpegExecutable = "./ffmpeg";
         
@@ -24,10 +24,13 @@ public class VideoToAudioConverter {
         command.addArgument("-i");
         command.addArgument(videoFilePath);
         command.addArgument(outputAudioFilePath);
-        
-        // Execute the command
-        DefaultExecutor executor = new DefaultExecutor();
-        executor.execute(command);
+                
+        try { // Execute the command
+        	DefaultExecutor executor = new DefaultExecutor();
+        	executor.execute(command);			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args) {

@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="commons-exec-1.4.0.jar"/>
 	<classpathentry kind="lib" path="gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="spark-core-2.9.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
