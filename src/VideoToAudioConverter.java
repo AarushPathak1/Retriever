@@ -31,16 +31,4 @@ public class VideoToAudioConverter {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void main(String[] args) {
-		String videoFilePath = "./sample.mp4"; 
-        String outputAudioFilePath = "./sample.mp3";
-
-        try {
-            extractAudio(videoFilePath, outputAudioFilePath);
-            System.out.println("Audio extraction completed successfully.");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-	}
 }
