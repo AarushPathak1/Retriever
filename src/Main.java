@@ -27,11 +27,17 @@ public class Main {
 	        // Endpoint to handle the OAuth2 callback
 	        get("/callback", (req, res) -> {
 	            String code = req.queryParams("code");
+	            System.out.println("0");
 	            manager.getAccessToken(code);
 	            return "Authorization successful! You can close this window.";
 	        });
-
 	        
+	        System.out.println("1");
+	        // Wait for the user to authorize and the server to receive the callback
+            System.out.println("Press Enter after authorization..."); 
+            scanner.nextLine(); // Wait for user input 
+	        
+            System.out.println("2");
 	        // once the authorization is complete, we can get all the user's playlists
 	        JsonArray playlists = manager.getUserPlaylists();
 	        if(playlists != null) {
@@ -45,15 +51,19 @@ public class Main {
 	            scanner = new Scanner(System.in);
 	            System.out.print("Select a playlist by number: ");
 	            int playlistIndex = scanner.nextInt();
+	            // if an invalid playlist number was selected, show appropriate error message
+	            if(playlists.size() > 0 && (playlistIndex < 1 || playlistIndex > playlists.size())) {
+	            	System.out.println("Please select a valid playlist!");
+	            }
 	            String playlistId = playlists.get(playlistIndex - 1).getAsJsonObject().get("id").getAsString();
 	            // add the song to the chosen playlist
 	        	manager.addSongToPlaylist(playlistId, song.getSongUri());
+	        	scanner.close();
 	        } else {
 				System.out.println("Failed to retrieve playlists");
 			}
 		} else {
             System.out.println("Song recognition failed or no URI found.");
         }
-		scanner.close();
 	}
 }

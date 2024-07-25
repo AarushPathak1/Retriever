@@ -13,7 +13,6 @@ public class VideoToAudioConverter {
 	 * 
 	 * @param videoFilePath The path of the video from which audio is to be extracted
 	 * @param outputAudioFilePath The location where the extracted audio is to be saved
-	 * @throws Exception
 	 */
 	public static void extractAudio(String videoFilePath, String outputAudioFilePath) {
 		// Path to the FFmpeg executable in the project directory
